@@ -1,0 +1,22 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.white {
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(51, 51, 51);
+}
+
+.dark {
+    color: white;
+    background-color: rgb(51, 51, 51);
+    border: 1px solid white;
+}

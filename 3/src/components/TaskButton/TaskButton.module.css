@@ -1,0 +1,12 @@
+.task-button {
+    padding: 1rem;
+    background-color: rgb(255, 110, 37);
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(233, 94, 24);
+    }
+}

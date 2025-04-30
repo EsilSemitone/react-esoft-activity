@@ -1,0 +1,23 @@
+.form {
+    padding: 3rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.input {
+    padding: 1rem;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: rgb(255, 172, 48);
+    cursor: pointer;
+    border-radius: 20px;
+}
