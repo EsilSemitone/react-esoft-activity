@@ -1,0 +1,27 @@
+.book-details--container {
+    display: flex;
+    gap: 2rem;
+}
+
+.book-details--book {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+.book-details--settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+}
+
+.button {
+    max-width: 10rem;
+}
+
+.select {
+    width: 20rem;
+}

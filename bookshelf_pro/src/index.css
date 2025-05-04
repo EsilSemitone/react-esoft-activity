@@ -1,0 +1,29 @@
+:root {
+    --font: font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    --white: rgb(255, 255, 255);
+    --black: black;
+    --black-background: rgb(71, 71, 71);
+    --active-link-color: rgb(0, 147, 167);
+}
+
+* {
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.light {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.dark {
+    background-color: var(--black-background);
+    color: var(--white);
+}
