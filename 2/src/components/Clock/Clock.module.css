@@ -1,0 +1,9 @@
+.clock {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.date-time {
+    font-size: 2rem;
+}

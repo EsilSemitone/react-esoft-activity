@@ -1,0 +1,5 @@
+export enum BOOK_DISPATCH_TYPE {
+    SET_COLOR = 'SET_COLOR',
+    SET_SIZE = 'SET_SIZE',
+    TOGGLE_BOLD = 'TOGGLE_BOLD',
+}

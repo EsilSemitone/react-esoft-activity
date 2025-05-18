@@ -1,0 +1,7 @@
+.greeting {
+    padding: 1rem;
+}
+
+.greeting span {
+    font-weight: 600;
+}
