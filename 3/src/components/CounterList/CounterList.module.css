@@ -1,0 +1,9 @@
+@import url('../../index.css');
+
+.counter-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex: 1;
+}
