@@ -6,18 +6,23 @@ import { THEME } from '../../common/enums/theme';
 
 function Settings() {
     const { state, dispatch } = useContext(AppContext);
+    const { state: appState } = useContext(AppContext);
 
     return (
-        <div className={styles['settings']}>
+        <div className={styles.settings}>
             <h1>Настройки</h1>
-            <div className={styles['settings-container']}>
-                <div className={styles['settings-item']}>
+            <div className={styles.settings_container}>
+                <div className={styles.settings_item}>
                     <div>Тема:</div>
-                    <Button onClick={dispatch.toggleTheme}>{state.theme === THEME.LIGHT ? 'Темная' : 'Светлая'}</Button>
+                    <Button onClick={dispatch.toggleTheme} theme={appState.theme}>
+                        {state.theme === THEME.LIGHT ? 'Темная' : 'Светлая'}
+                    </Button>
                 </div>
-                <div className={styles['settings-item']}>
+                <div className={styles.settings_item}>
                     <div>Сброс избранного:</div>
-                    <Button onClick={dispatch.resetFavorites}>Сбросить</Button>
+                    <Button onClick={dispatch.resetFavorites} theme={appState.theme}>
+                        Сбросить
+                    </Button>
                 </div>
             </div>
         </div>

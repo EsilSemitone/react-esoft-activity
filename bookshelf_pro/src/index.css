@@ -5,6 +5,7 @@
     --black: black;
     --black-background: rgb(71, 71, 71);
     --active-link-color: rgb(0, 147, 167);
+    --box-shadow: rgba(233, 233, 233, 0.25);
 }
 
 * {

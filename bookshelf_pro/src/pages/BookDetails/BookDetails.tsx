@@ -34,21 +34,22 @@ function BookDetails() {
         <>
             {!book && <h1>Книга не найдена!</h1>}
             {book && (
-                <div className={styles['book-details--container']}>
+                <div className={styles.book_details__container}>
                     <div
                         style={{
                             color: bookState.color ? bookState.color : '',
                             fontSize: bookState.size ? SIZES[bookState.size] : '',
                             fontWeight: bookState.bold ? '600' : '',
                         }}
-                        className={styles['book-details--book']}
+                        className={styles.book_details__book}
                     >
                         <h1>{book.name}</h1>
                         <div>{`Автор: ${book.author}`}</div>
                         <div>{`Написана: ${book.written_date.toLocaleDateString()}`}</div>
                         <p>{book.description}</p>
                         <Button
-                            className={styles['button']}
+                            className={styles.button}
+                            theme={state.theme}
                             onClick={() => {
                                 dispatch.toggleFavorite(uuid!);
                             }}
@@ -56,12 +57,12 @@ function BookDetails() {
                             В избранное
                         </Button>
                     </div>
-                    <div className={styles['book-details--settings']}>
+                    <div className={styles.book_details__settings}>
                         <h1>Настройки</h1>
-                        <div className={styles['setting-item']}>
+                        <div className={styles.setting_item}>
                             <div>Цвет текста</div>
                             <Select
-                                className={styles['select']}
+                                className={styles.select}
                                 options={Object.keys(COLORS).map((key) => {
                                     return { value: key, label: key };
                                 })}
@@ -76,10 +77,10 @@ function BookDetails() {
                                 }
                             />
                         </div>
-                        <div className={styles['setting-item']}>
+                        <div className={styles.setting_item}>
                             <div>Цвет текста</div>
                             <Select
-                                className={styles['select']}
+                                className={styles.select}
                                 options={Object.keys(SIZES).map((size) => {
                                     return { value: size, label: size };
                                 })}
@@ -98,6 +99,7 @@ function BookDetails() {
                             onClick={() => {
                                 bookDispatch.toggleBold();
                             }}
+                            theme={state.theme}
                         >{`Жирный текст ${bookState.bold ? 'вкл' : 'выкл'}`}</Button>
                     </div>
                 </div>

@@ -10,12 +10,12 @@ import { IBook } from '../../common/interfaces/book.interface';
 import { IFilters } from '../../context/app-context/interfaces/filters.interface';
 import Select from 'react-select';
 import { Button } from '../../components/Button/Button';
+import { useQueryParams } from '../../hooks/use-query-params';
 
 function Books() {
     const { state, dispatch } = useContext(AppContext);
     const [books, setBooks] = useState<IBook[]>([]);
-    const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const { setQueryParam, resetParams, searchParams } = useQueryParams();
     const [isOnlyFavorites, setIsOnlyFavorites] = useState(false);
 
     const getBooks = useCallback(
@@ -76,20 +76,6 @@ function Books() {
         }
     }, []);
 
-    const setQueryParam = ({ key, value }: { key: string; value: string }) => {
-        setSearchParams((prevParams) => {
-            const params = new URLSearchParams(prevParams);
-
-            if (value === '') {
-                params.delete(key);
-            } else {
-                params.set(key, value);
-            }
-
-            return params;
-        });
-    };
-
     const onChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
         setQueryParam({ key: 'searchQuery', value: query });
@@ -114,16 +100,18 @@ function Books() {
 
     const reset = () => {
         dispatch.resetFiltersAndSearchQuery();
-        setSearchParams({});
+        resetParams();
         setIsOnlyFavorites(false);
     };
 
     return (
-        <div className={styles['books']}>
-            <div className={styles['books-header']}>
+        <div className={styles.books}>
+            <div className={styles.books_header}>
                 <div className={styles['heder-item']}>{`Книг в избранном ${state.favorites.length}`}</div>
-                <Button onClick={reset}>Сбросить все</Button>
-                <div className={styles['heder-item']}>
+                <Button theme={state.theme} onClick={reset}>
+                    Сбросить все
+                </Button>
+                <div className={styles.header_item}>
                     <div>Только избранное</div>
                     <input
                         type="checkbox"
@@ -135,10 +123,10 @@ function Books() {
                     />
                 </div>
 
-                <div className={styles['heder-item']}>
+                <div className={styles.header_item}>
                     <div>Автор: </div>
                     <Select
-                        className={styles['select']}
+                        className={styles.select}
                         options={Array.from(new Set(books.map((b) => b.author))).map((author) => ({
                             value: author,
                             label: author,
@@ -149,10 +137,10 @@ function Books() {
                         }
                     />
                 </div>
-                <div className={styles['heder-item']}>
+                <div className={styles.header_item}>
                     <div>Год: </div>
                     <Select
-                        className={styles['select']}
+                        className={styles.select}
                         options={Array.from(new Set(books.map((b) => new Date(b.written_date).getFullYear())))
                             .sort((a, b) => a - b)
                             .map((date) => {
@@ -169,30 +157,28 @@ function Books() {
                         }
                     />
                 </div>
-                <div className={styles['search-input']}>
+                <div className={styles.search_input}>
                     <Input
                         onChange={onChangeSearchInput}
-                        className={styles['input']}
+                        className={styles.input}
                         placeholder="Поиск"
                         value={state.searchQuery || ''}
                     ></Input>
                     <img src="/search-icon.svg" alt="Иконка поиска" />
                 </div>
             </div>
-            <div className={styles['book-list']}>
+            <div className={styles.book_list}>
                 {books.map(({ uuid, name, author }) => (
                     <BookCart
                         key={uuid}
                         className={cn({
-                            [styles['dark-border']]: state.theme === THEME.LIGHT,
-                            [styles['light-border']]: state.theme === THEME.DARK,
+                            [styles.dark_border]: state.theme === THEME.LIGHT,
+                            [styles.light_border]: state.theme === THEME.DARK,
                         })}
-                        onClick={() => {
-                            navigate(`/book/${uuid}`);
-                        }}
                         uuid={uuid}
                         name={name}
                         author={author}
+                        theme={state.theme}
                     ></BookCart>
                 ))}
             </div>

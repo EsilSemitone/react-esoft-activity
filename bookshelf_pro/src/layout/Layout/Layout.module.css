@@ -23,7 +23,7 @@
     font-size: 1.2rem;
 }
 
-.menu-footer {
+.menu_footer {
     display: flex;
     gap: 1rem;
     align-items: center;

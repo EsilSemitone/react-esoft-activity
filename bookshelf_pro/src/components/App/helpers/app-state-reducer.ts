@@ -1,6 +1,4 @@
-import { LOCALSTORAGE_KEYS } from '../../../common/constants/localstorage-keys';
 import { THEME } from '../../../common/enums/theme';
-import { saveItem } from '../../../common/localstorage/localstorage';
 import { IAppState } from '../../../common/state/app/app-state.interface';
 import { APP_DISPATCH_TYPE } from './app-dispatch-type';
 
@@ -19,19 +17,15 @@ export function appStateReducer(state: IAppState, { type, payload }: { type: APP
             return { ...state, searchQuery: payload };
         }
         case APP_DISPATCH_TYPE.TOGGLE_FAVORITE: {
-            const indexBook = state.favorites.findIndex((uuid) => uuid === payload);
+            const book = state.favorites.find((id) => id === payload);
 
-            if (indexBook === -1) {
-                saveItem(LOCALSTORAGE_KEYS.FAVORITES, JSON.stringify([...state.favorites, payload]));
+            if (!book) {
                 return { ...state, favorites: [...state.favorites, payload] };
             }
-
-            saveItem(LOCALSTORAGE_KEYS.THEME, JSON.stringify([...state.favorites.splice(indexBook, 1)]));
-            return { ...state, favorites: [...state.favorites.splice(indexBook, 1)] };
+            return { ...state, favorites: state.favorites.filter((id) => id !== payload) };
         }
         case APP_DISPATCH_TYPE.TOGGLE_THEME: {
             const theme = state.theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
-            saveItem(LOCALSTORAGE_KEYS.THEME, theme);
             return { ...state, theme };
         }
 
@@ -40,8 +34,11 @@ export function appStateReducer(state: IAppState, { type, payload }: { type: APP
         }
 
         case APP_DISPATCH_TYPE.RESET_FAVORITES: {
-            saveItem(LOCALSTORAGE_KEYS.FAVORITES, JSON.stringify([]));
             return { ...state, favorites: [] };
+        }
+
+        default: {
+            return state;
         }
     }
 }

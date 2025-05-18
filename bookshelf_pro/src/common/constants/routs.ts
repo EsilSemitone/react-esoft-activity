@@ -1,4 +1,4 @@
-export const ROUTS = {
+export const ROUTES = {
     app: {
         root: '/',
         books: '/',

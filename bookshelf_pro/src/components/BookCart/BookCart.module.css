@@ -7,13 +7,13 @@
     cursor: pointer;
 }
 
-.cart-header {
+.cart_header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
 }
 
-.cart-container {
+.cart_container {
     display: flex;
 }

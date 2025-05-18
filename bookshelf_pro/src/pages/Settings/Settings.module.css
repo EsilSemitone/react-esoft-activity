@@ -4,14 +4,14 @@
     gap: 2rem;
 }
 
-.settings-container {
+.settings_container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 10%;
 }
 
-.settings-item {
+.settings_item {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

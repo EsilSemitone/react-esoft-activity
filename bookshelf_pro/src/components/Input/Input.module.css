@@ -1,7 +1,7 @@
 .input {
     border: 1px solid #eee;
     border-radius: 10px;
-    box-shadow: 5px 5px 25px 0 rgba(233, 233, 233, 0.25);
+    box-shadow: 5px 5px 25px 0 var(--box-shadow);
     padding: 0.7rem;
     outline: none;
     font-size: 1rem;

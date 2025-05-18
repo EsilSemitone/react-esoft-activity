@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router';
 import styles from './Layout.module.css';
-import { ROUTS } from '../../common/constants/routs';
+import { ROUTES } from '../../common/constants/routs';
 import { Button } from '../../components/Button/Button';
 import { AppContext } from '../../context/app-context/app-context';
 import { useCallback, useContext, useReducer } from 'react';
@@ -35,45 +35,47 @@ function Layout() {
 
     return (
         <div
-            className={cn(styles['layout'], {
-                [styles['light']]: state.theme === THEME.LIGHT,
-                [styles['dark']]: state.theme === THEME.DARK,
+            className={cn(styles.layout, {
+                [styles.light]: state.theme === THEME.LIGHT,
+                [styles.dark]: state.theme === THEME.DARK,
             })}
         >
-            <div className={styles['menu']}>
+            <div className={styles.menu}>
                 <h1>Книжная полка Pro</h1>
-                <div className={styles['navigate']}>
+                <div className={styles.navigate}>
                     <NavLink
                         className={({ isActive }) =>
-                            cn(styles['menu-item'], {
-                                [styles['light']]: state.theme === THEME.LIGHT,
-                                [styles['dark']]: state.theme === THEME.DARK,
-                                [styles['active']]: isActive,
+                            cn(styles.menu_item, {
+                                [styles.light]: state.theme === THEME.LIGHT,
+                                [styles.dark]: state.theme === THEME.DARK,
+                                [styles.active]: isActive,
                             })
                         }
-                        to={ROUTS.app.books}
+                        to={ROUTES.app.books}
                     >
                         Книги
                     </NavLink>
                     <NavLink
                         className={({ isActive }) =>
-                            cn(styles['menu-item'], {
-                                [styles['light']]: state.theme === THEME.LIGHT,
-                                [styles['dark']]: state.theme === THEME.DARK,
-                                [styles['active']]: isActive,
+                            cn(styles.menu_item, {
+                                [styles.light]: state.theme === THEME.LIGHT,
+                                [styles.dark]: state.theme === THEME.DARK,
+                                [styles.active]: isActive,
                             })
                         }
-                        to={ROUTS.app.settings}
+                        to={ROUTES.app.settings}
                     >
                         Настройки
                     </NavLink>
                 </div>
-                <div className={styles['menu-footer']}>
+                <div className={styles.menu_footer}>
                     <div>Тема</div>
-                    <Button onClick={dispatch.toggleTheme}>{state.theme === THEME.LIGHT ? 'Темная' : 'Светлая'}</Button>
+                    <Button onClick={dispatch.toggleTheme} theme={state.theme}>
+                        {state.theme === THEME.LIGHT ? 'Темная' : 'Светлая'}
+                    </Button>
                 </div>
             </div>
-            <div className={styles['content']}>
+            <div className={styles.content}>
                 <BookPageContext.Provider
                     value={{
                         state: bookState,

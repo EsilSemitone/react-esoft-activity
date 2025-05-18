@@ -1,16 +1,16 @@
-.book-details--container {
+.book_details__container {
     display: flex;
     gap: 2rem;
 }
 
-.book-details--book {
+.book_details__book {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     flex: 1;
 }
 
-.book-details--settings {
+.book_details__settings {
     display: flex;
     flex-direction: column;
     gap: 1rem;

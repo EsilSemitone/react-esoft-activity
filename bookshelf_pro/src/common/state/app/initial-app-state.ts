@@ -1,5 +1,5 @@
 import { THEME } from '../../enums/theme';
-import { BOOKS } from '../../seed/books';
+import { BOOKS } from '../../mocks/books';
 import { IAppState } from './app-state.interface';
 
 export const INITIAL_APP_STATE: IAppState = {

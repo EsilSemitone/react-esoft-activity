@@ -1,30 +1,31 @@
 import { createBrowserRouter } from 'react-router';
-import { ROUTS } from './routs';
+import { ROUTES } from './routs';
 import Layout from '../../layout/Layout/Layout';
 import Books from '../../pages/Books/Books';
 import BookDetails from '../../pages/BookDetails/BookDetails';
 import Settings from '../../pages/Settings/Settings';
+import { PageNotFound } from '../../components/PageNotFound/PageNotFound';
 
 export const ROUTER = createBrowserRouter([
     {
-        path: ROUTS.app.root,
+        path: ROUTES.app.root,
         element: <Layout></Layout>,
         children: [
             {
-                path: ROUTS.app.books,
+                path: ROUTES.app.books,
                 element: <Books></Books>,
             },
             {
-                path: ROUTS.app.bookDetails,
+                path: ROUTES.app.bookDetails,
                 element: <BookDetails></BookDetails>,
             },
             {
-                path: ROUTS.app.settings,
+                path: ROUTES.app.settings,
                 element: <Settings></Settings>,
             },
             {
-                path: ROUTS.app.error,
-                element: <div>страница не найдена</div>,
+                path: ROUTES.app.error,
+                element: <PageNotFound></PageNotFound>,
             },
         ],
     },

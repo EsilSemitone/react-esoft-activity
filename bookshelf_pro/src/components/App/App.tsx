@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import { LOCALSTORAGE_KEYS } from '../../common/constants/localstorage-keys';
 import { THEME } from '../../common/enums/theme';
 import { AppContext } from '../../context/app-context/app-context';
@@ -8,8 +8,8 @@ import { APP_DISPATCH_TYPE } from './helpers/app-dispatch-type';
 import { IBook } from '../../common/interfaces/book.interface';
 import { IFilters } from '../../context/app-context/interfaces/filters.interface';
 import { RouterProvider } from 'react-router';
-import { ROUTER } from '../../common/constants/router';
-import { getItem } from '../../common/localstorage/localstorage';
+import { ROUTER } from '../../common/constants/routes';
+import { getItem, saveItem } from '../../common/localstorage/localstorage';
 
 function App() {
     const theme = getItem<THEME>(LOCALSTORAGE_KEYS.THEME);
@@ -24,6 +24,11 @@ function App() {
         ...(localstorageSearchQuery ? { searchQuery: localstorageSearchQuery } : {}),
         ...(localstorageFilters ? { filters: JSON.parse(localstorageFilters) } : {}),
     });
+
+    useEffect(() => {
+        saveItem(LOCALSTORAGE_KEYS.FAVORITES, JSON.stringify(state.favorites));
+        saveItem(LOCALSTORAGE_KEYS.THEME, state.theme);
+    }, [state]);
 
     const toggleTheme = useCallback(() => {
         dispatch({ type: APP_DISPATCH_TYPE.TOGGLE_THEME });
