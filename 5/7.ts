@@ -12,6 +12,6 @@ class Car {
   }
 
   getDescription(): string {
-    return `Марка: ${this.make},\nМодель: ${this.model},\nГод создания: ${this.year},\nПробег: ${this.mileage}`;
+    return `Машина: ${this.make}, модель: ${this.model}, год выпуска: ${this.year}, проехала: ${this.mileage}`;
   }
 }
