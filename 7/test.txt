@@ -1,0 +1,7 @@
+You write code to describe your command line interface.
+Commander looks after strict the arguments into options and command-arguments,
+displays usage errors for problems, and implements a help system.
+
+Commander is strict and displays an error for unrecognised options.
+he two most used option types are a boolean option, Strict
+and an option which takes its value from strict following argument.
