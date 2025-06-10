@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "uuid": "e4773e26-0973-477a-bbf1-0a30435fe560",
+      "name": "новое имя",
+      "price": 2,
+      "stock": 1,
+      "category": "HOME",
+      "created_at": "2025-06-09T03:38:20.168Z"
+    },
+    {
+      "name": "1",
+      "price": 1,
+      "stock": 1,
+      "category": "SEEDS",
+      "uuid": "791f182c-a7b0-4bb4-aeb9-c1004ead0b9b",
+      "created_at": "2025-06-09T12:02:55.794Z"
+    },
+    {
+      "name": "2",
+      "price": 1,
+      "stock": 1,
+      "category": "SEEDS",
+      "uuid": "aeb74f2f-45a7-41e8-a2c7-d65342349391",
+      "created_at": "2025-06-09T12:02:58.519Z"
+    },
+    {
+      "name": "3",
+      "price": 1,
+      "stock": 1,
+      "category": "SEEDS",
+      "uuid": "252de69c-0d94-4b80-b205-ba13e4fd5b21",
+      "created_at": "2025-06-09T12:03:00.680Z"
+    },
+    {
+      "name": "4",
+      "price": 1,
+      "stock": 1,
+      "category": "HOME",
+      "uuid": "a6206e71-6c3b-43dc-a667-8f98142e0e3d",
+      "created_at": "2025-06-09T12:03:08.042Z"
+    },
+    {
+      "name": "5",
+      "price": 1,
+      "stock": 1,
+      "category": "HOME",
+      "uuid": "8d77efb8-4c70-4dbf-9610-b2716c3d4a12",
+      "created_at": "2025-06-09T12:03:11.194Z"
+    },
+    {
+      "name": "6",
+      "price": 1,
+      "stock": 1,
+      "category": "HOME",
+      "uuid": "0719d56b-3ba4-40d4-b938-620703539007",
+      "created_at": "2025-06-09T12:03:14.128Z"
+    }
+  ]
+}
